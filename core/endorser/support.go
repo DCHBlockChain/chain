@@ -20,6 +20,7 @@ import (
 	"github.com/hyperledger/fabric/core/scc"
 	"github.com/hyperledger/fabric/protos/common"
 	pb "github.com/hyperledger/fabric/protos/peer"
+	"github.com/stretchr/testify/mock"
 	"github.com/pkg/errors"
 	"golang.org/x/net/context"
 )
