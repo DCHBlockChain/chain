@@ -214,9 +214,11 @@ func (r *Registrar) BroadcastChannelSupport(msg *cb.Envelope) (*cb.ChannelHeader
 
 	isConfig := false
 	switch cs.ClassifyMsg(chdr) {
-	case msgprocessor.ConfigUpdateMsg:
-		isConfig = true
-	default:
+		case msgprocessor.ConfigUpdateMsg:
+			isConfig = true
+		case msgprocessor.ConfigMsg:
+			return chdr, false, nil, errors.New("message is of type that cannot be processed directly")
+		default:
 	}
 
 	return chdr, isConfig, cs, nil
